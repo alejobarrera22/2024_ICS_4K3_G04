@@ -70,10 +70,10 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 | NT                | Notas de Clase                                                                                       |
 | SCM               | Gestión de Configuración del Software                                                                |
 | U                 | Unidad                                                                                               |
-| `<Título>`        | Título del Trabajo Conceptual o Práctico                                                             |
-| `<NúmeroDeUnidad>` | Número de la Unidad correspondiente al Tema del documento o archivo, siguiendo los números establecidos en el programa de la asignatura. |
-| `<NúmeroSemana>`  | Número de la semana a la que corresponde un Ítem de Configuración de notas de clase, según el cronograma de la materia en el año 2024.     |
-| `<Nombre_Apellido>` | Nombre y apellido del autor de un ítem de Configuración de notas de clase.                                                             |
+| <Título>        | Título del Trabajo Conceptual o Práctico                                                             |
+| <NúmeroDeUnidad> | Número de la Unidad correspondiente al Tema del documento o archivo, siguiendo los números establecidos en el programa de la asignatura. |
+| <NúmeroSemana>  | Número de la semana a la que corresponde un Ítem de Configuración de notas de clase, según el cronograma de la materia en el año 2024.     |
+| <Nombre_Apellido> | Nombre y apellido del autor de un ítem de Configuración de notas de clase.                                                             |
 
 
 
