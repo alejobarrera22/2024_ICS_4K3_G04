@@ -25,9 +25,9 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 │   ├── Notas de Clase
 │   │   ├── ICS_NC_<NúmeroSemana>_<Nombre_Apellido>.pdf
 │   ├── Presentaciones
-|   |   ├── Resúmenes
-|   |   |   ├── ICS_RES_U<NúmeroDeUnidad>.pdf
-│   │   ├── ICS_PPT_U<NúmeroDeUnidad>_<Tema>.pdf
+|   |   ├── ICS_PPT_U<NúmeroDeUnidad>_<Tema>.pdf
+|   ├── Resúmenes
+|   |   ├── ICS_RES_U<NúmeroDeUnidad>.pdf
 ├── Programa
 │   ├── ICS_ProgramaAsignatura_2024.pdf  
 ├── Templates
