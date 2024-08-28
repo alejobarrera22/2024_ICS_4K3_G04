@@ -61,7 +61,7 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 | Acrónimo          | Significado                                                                                          |
 |-------------------|------------------------------------------------------------------------------------------------------|
 | ISW               | Ingeniería y Calidad de Software                                                                     |
-| G4                | Grupo número 4                                                                                       |
+| G04                | Grupo número 4                                                                                       |
 | TP                | Trabajo Práctico                                                                                     |
 | TC                | Trabajo Conceptual                                                                                   |
 | PPT               | Presentaciones                                                                                       |
