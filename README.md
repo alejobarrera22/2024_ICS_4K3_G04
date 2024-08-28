@@ -21,22 +21,22 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 2024_ICS_4K3_G04
 ├── Material Estudio
 │   ├── Bibliografía
-│   │   ├── ICS_BB_<NombreDelDocumento>.pdf
+│   │   └── ICS_BB_<NombreDelDocumento>.pdf
 │   ├── Notas de Clase
-│   │   ├── ICS_NC_<NúmeroSemana>_<Nombre_Apellido>.pdf
+│   │   └── ICS_NC_<NúmeroSemana>_<Nombre_Apellido>.pdf
 │   ├── Presentaciones
-|   |   ├── ICS_PPT_U<NúmeroDeUnidad>_<Tema>.pdf
+|   |   └── ICS_PPT_U<NúmeroDeUnidad>_<Tema>.pdf
 |   ├── Resúmenes
-|   |   ├── ICS_RES_U<NúmeroDeUnidad>.pdf
+|   |   └── ICS_RES_U<NúmeroDeUnidad>.pdf
 ├── Programa
-│   ├── ICS_ProgramaAsignatura_2024.pdf  
+│   └── ICS_ProgramaAsignatura_2024.pdf  
 ├── Templates
-│   ├── ICS_Template_<NombreDelTema>.[docx|xlsx]
+│   └── ICS_Template_<NombreDelTema>.[docx|xlsx]
 ├── Trabajos
 │   ├── Trabajos Conceptuales
-│   │   ├── ICS_TC_<NúmeroDeTC>_<Título>.pdf
+│   │   └── ICS_TC_<NúmeroDeTC>_<Título>.pdf
 │   ├── Trabajos Prácticos
-│   │   ├── ICS_TP_<NúmeroDeTP>_<Título>.[pdf|xlsx]
+│   │   └── ICS_TP_<NúmeroDeTP>_<Título>.[pdf|xlsx]
 ```
 
 
