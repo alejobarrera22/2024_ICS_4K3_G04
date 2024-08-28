@@ -21,22 +21,22 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 2024_ICS_4K3_G04
 ├── Material Estudio
 │   ├── Bibliografía
-│   │   ├── ISW_BB_<NombreDelDocumento>.pdf
+│   │   ├── ICS_BB_<NombreDelDocumento>.pdf
 │   ├── Notas de Clase
-│   │   ├── ISW_NT_<NúmeroSemana>_<Nombre_Apellido>.pdf
+│   │   ├── ICS_NC_<NúmeroSemana>_<Nombre_Apellido>.pdf
 │   ├── Presentaciones
 |   |   ├── Resúmenes
-|   |   |   ├── ISW_RES_U<NúmeroDeUnidad>.pdf
-│   │   ├── ISW_PPT_U<NúmeroDeUnidad>_<Tema>.pdf
+|   |   |   ├── ICS_RES_U<NúmeroDeUnidad>.pdf
+│   │   ├── ICS_PPT_U<NúmeroDeUnidad>_<Tema>.pdf
 ├── Programa
-│   ├── ISW_ProgramaAsignatura_2024.pdf  
+│   ├── ICS_ProgramaAsignatura_2024.pdf  
 ├── Templates
-│   ├── ISW_Template_<NombreDelTema>.[docx|xlsx]
+│   ├── ICS_Template_<NombreDelTema>.[docx|xlsx]
 ├── Trabajos
 │   ├── Trabajos Conceptuales
-│   │   ├── ISW_TC_<NúmeroDeTC>_<Título>.pdf
+│   │   ├── ICS_TC_<NúmeroDeTC>_<Título>.pdf
 │   ├── Trabajos Prácticos
-│   │   ├── ISW_TP_<NúmeroDeTP>_<Título>.[pdf|xlsx]
+│   │   ├── ICS_TP_<NúmeroDeTP>_<Título>.[pdf|xlsx]
 ```
 
 
@@ -45,14 +45,14 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 ---
 | Ítem                | Regla de Nombrado                                | Ubicación                                                         |
 |---------------------|--------------------------------------------------|-------------------------------------------------------------------|
-| Programa de Asignatura | `ISW_ProgramaAsignatura_2024.pdf`               | `2024_ICS_4K3_G04\Programa\`                                      |
-| Trabajos Prácticos  | `ISW_TP_<NúmeroDeTP>_<Título>.[pdf/xslx]`         | `2024_ICS_4K3_G04\Trabajos\Trabajos Prácticos\`                   |
-| Trabajos Conceptuales | `ISW_TC_<NúmeroDeTC>_<Título>.pdf`               | `2024_ICS_4K3_G04\Trabajos\Trabajos Conceptuales\`                |
-| Templates           | `ISW_Template_.[docx/xslx]`                      | `2024_ICS_4K3_G04\Templates\`                                     |
-| Presentaciones      | `ISW_PPT_U<NúmeroDeUnidad>_.pdf`                 | `2024_ICS_4K3_G04\Material Estudio\Presentaciones\`               |
-| Resúmenes           | `ISW_RES_U<NúmeroDeUnidad>.pdf`                  | `2024_ICS_4K3_G04\Material Estudio\Resúmenes\`                    |
-| Bibliografía        | `ISW_BB_.pdf`                                    | `2024_ICS_4K3_G04\Material Estudio\Bibliografía\`                 |
-| Notas de Clase      | `ISW_NT_<NúmeroSemana>_<Nombre_Apellido>.pdf`    | `2024_ICS_4K3_G04\Material Estudio\Notas de Clase\`               |
+| Programa de Asignatura | `ICS_ProgramaAsignatura_2024.pdf`               | `2024_ICS_4K3_G04\Programa\`                                      |
+| Trabajos Prácticos  | `ICS_TP_<NúmeroDeTP>_<Título>.[pdf/xslx]`         | `2024_ICS_4K3_G04\Trabajos\Trabajos Prácticos\`                   |
+| Trabajos Conceptuales | `ICS_TC_<NúmeroDeTC>_<Título>.pdf`               | `2024_ICS_4K3_G04\Trabajos\Trabajos Conceptuales\`                |
+| Templates           | `ICS_Template_.[docx/xslx]`                      | `2024_ICS_4K3_G04\Templates\`                                     |
+| Presentaciones      | `ICS_PPT_U<NúmeroDeUnidad>_.pdf`                 | `2024_ICS_4K3_G04\Material Estudio\Presentaciones\`               |
+| Resúmenes           | `ICS_RES_U<NúmeroDeUnidad>.pdf`                  | `2024_ICS_4K3_G04\Material Estudio\Resúmenes\`                    |
+| Bibliografía        | `ICS_BB_.pdf`                                    | `2024_ICS_4K3_G04\Material Estudio\Bibliografía\`                 |
+| Notas de Clase      | `ICS_NT_<NúmeroSemana>_<Nombre_Apellido>.pdf`    | `2024_ICS_4K3_G04\Material Estudio\Notas de Clase\`               |
 
 
 ### Glosario
@@ -60,14 +60,14 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 
 | Acrónimo          | Significado                                                                                          |
 |-------------------|------------------------------------------------------------------------------------------------------|
-| ISW               | Ingeniería y Calidad de Software                                                                     |
+| ICS               | Ingeniería y Calidad de Software                                                                     |
 | G04                | Grupo número 4                                                                                       |
 | TP                | Trabajo Práctico                                                                                     |
 | TC                | Trabajo Conceptual                                                                                   |
 | PPT               | Presentaciones                                                                                       |
 | RES               | Resúmenes                                                                                            |
 | BB                | Bibliografía                                                                                         |
-| NT                | Notas de Clase                                                                                       |
+| NC                | Notas de Clase                                                                                       |
 | SCM               | Gestión de Configuración del Software                                                                |
 | U                 | Unidad                                                                                               |
 | <Título>        | Título del Trabajo Conceptual o Práctico                                                             |
