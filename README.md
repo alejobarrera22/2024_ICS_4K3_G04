@@ -11,7 +11,7 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 - [Montenegro, Facundo 90329](https://github.com/facu142)
 - [Toledo, Antonio Ramón 81865](https://github.com/toledoantonio)
 - [Zalaya, Ignacio 85641](https://github.com/ignaciozalaya)
-- [Morales, Emiliano Javier 54112]()
+- [Morales, Emiliano Javier 54112](https://github.com/EmiMorales)
 - [Luna, Facundo Nicolás 89422](https://github.com/FacundoLuna16)
 - [Reyna, Teodoro 89891](https://github.com/ReynaTeodoro)
 
