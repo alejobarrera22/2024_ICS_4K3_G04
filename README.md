@@ -79,7 +79,7 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 | <NúmeroDeUnidad>  | Número de la Unidad correspondiente al Tema del documento o archivo, siguiendo los números establecidos en el programa de la asignatura. |
 | <NúmeroSemana>    | Número de la semana a la que corresponde un Ítem de Configuración de notas de clase, según el cronograma de la materia en el año 2024.   |
 | <Nombre_Apellido> | Nombre y apellido del autor de un ítem de Configuración de notas de clase.                                                               |
-| <Tema>            | Nombre o toitulo del topico desarrollado en el documento o archivo                                                                       |
+| <Tema>            | Nombre o titulo del topico desarrollado en el documento o archivo                                                                        |
 
 ### Criterio para el establecimiento de líneas base
 
