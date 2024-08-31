@@ -48,16 +48,16 @@ Este repositorio será usado por los integrantes del grupo a lo largo del cursad
 
 ---
 
-| Ítem                   | Regla de Nombrado                                    | Ubicación                                                                 |
-| ---------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------- |
-| Programa de Asignatura | `ICS_ProgramaAsignatura_2024.pdf`                    | `2024_ICS_4K3_G04\Programa\`                                              |
-| Trabajos Prácticos     | `ICS_TP_<NúmeroDeTP>_<Título>.[pdf/xslx]`            | `2024_ICS_4K3_G04\Trabajos\Trabajos Prácticos\`                           |
-| Trabajos Conceptuales  | `ICS_TC_<NúmeroDeTC>_<Título>.pdf`                   | `2024_ICS_4K3_G04\Trabajos\Trabajos Conceptuales\`                        |
-| Templates              | `ICS_Template_.[docx/xslx]`                          | `2024_ICS_4K3_G04\Templates\`                                             |
-| Presentaciones         | `ICS_PPT_U<NúmeroDeUnidad>_.pdf`                     | `2024_ICS_4K3_G04\Material Estudio\Presentaciones\`                       |
-| Resúmenes              | `ICS_RES_U<NúmeroDeUnidad>_<tema>.[pdf/.excalidraw]` | `2024_ICS_4K3_G04\Material Estudio\Resúmenes\`                            |
-| Bibliografía           | `ICS_BB_.pdf`                                        | `2024_ICS_4K3_G04\Material Estudio\Bibliografía\U<NúmeroDeUnidad>-<Tema>` |
-| Notas de Clase         | `ICS_NT_<NúmeroSemana>_<Nombre_Apellido>.pdf`        | `2024_ICS_4K3_G04\Material Estudio\Notas de Clase\`                       |
+| Ítem                   | Regla de Nombrado                                    | Ubicación                                                                  |
+| ---------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------- |
+| Programa de Asignatura | `ICS_ProgramaAsignatura_2024.pdf`                    | `2024_ICS_4K3_G04\Programa\`                                               |
+| Trabajos Prácticos     | `ICS_TP_<NúmeroDeTP>_<Título>.[pdf/xslx]`            | `2024_ICS_4K3_G04\Trabajos\Trabajos Prácticos\`                            |
+| Trabajos Conceptuales  | `ICS_TC_<NúmeroDeTC>_<Título>.pdf`                   | `2024_ICS_4K3_G04\Trabajos\Trabajos Conceptuales\`                         |
+| Templates              | `ICS_Template_.[docx/xslx]`                          | `2024_ICS_4K3_G04\Templates\`                                              |
+| Presentaciones         | `ICS_PPT_U<NúmeroDeUnidad>_.pdf`                     | `2024_ICS_4K3_G04\Material Estudio\Presentaciones\`                        |
+| Resúmenes              | `ICS_RES_U<NúmeroDeUnidad>_<tema>.[pdf/.excalidraw]` | `2024_ICS_4K3_G04\Material Estudio\Resúmenes\`                             |
+| Bibliografía           | `ICS_BB_<Título>.pdf`                                | `2024_ICS_4K3_G04\Material Estudio\Bibliografía\U<NúmeroDeUnidad>-<Tema>\` |
+| Notas de Clase         | `ICS_NT_<NúmeroSemana>_<Nombre_Apellido>.pdf`        | `2024_ICS_4K3_G04\Material Estudio\Notas de Clase\`                        |
 
 ### Glosario
 
