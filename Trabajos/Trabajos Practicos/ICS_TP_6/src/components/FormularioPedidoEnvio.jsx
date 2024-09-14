@@ -312,7 +312,7 @@ const FormularioPedidoEnvio = () => {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Accordion>
+              <Accordion defaultExpanded>
                 <AccordionSummary id="panel-header" aria-controls="panel-content" onClick={handleOpenRetiro}>
                   {accordionRetiro ? <KeyboardArrowUpIcon></KeyboardArrowUpIcon> : <KeyboardArrowDownIcon></KeyboardArrowDownIcon>}
                 </AccordionSummary>
@@ -422,7 +422,7 @@ const FormularioPedidoEnvio = () => {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-            <Accordion>
+            <Accordion defaultExpanded>
                 <AccordionSummary id="panel-header" aria-controls="panel-content" onClick={handleOpenEntrega}>
                   {accordionEntrega ? <KeyboardArrowUpIcon></KeyboardArrowUpIcon> : <KeyboardArrowDownIcon></KeyboardArrowDownIcon>}
                 </AccordionSummary>
