@@ -1,0 +1,33 @@
+[
+    {
+        "nombre":"Teodoro Reyna",
+        "email":"teo.dileo@gmail.com",
+        "localidad":"Cordoba",
+        "provincia":"Cordoba"
+    },
+    {
+        "nombre":"Facundo Luna",
+        "email":"fakkuluna98@gmail.com",
+        "localidad":"Villa Allende",
+        "provincia":"Cordoba"
+    },
+    {
+        "nombre":"Antonio Toledo",
+        "email":"antoniot124@gmail.com",
+        "localidad":"Jesus Maria",
+        "provincia":"Cordoba"
+    },
+    {
+        "nombre":"Facundo Montenegro",
+        "email":"facumonte29@gmail.com",
+        "localidad":"Piquillin",
+        "provincia":"Cordoba"
+    },
+    {
+        "nombre":"Ignacio Zalaya",
+        "email":"ninozalaya.97@gmail.com",
+        "localidad":"Cordoba",
+        "provincia":"Cordoba"
+    }
+
+]
