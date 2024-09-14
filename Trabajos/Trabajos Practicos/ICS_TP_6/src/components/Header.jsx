@@ -1,6 +1,6 @@
 import AppBar from '@mui/material/AppBar'
 import { Box, Hidden, useMediaQuery, useTheme } from '@mui/material'
-import image from '../assets/tango-app-logo.svg'
+import image from '../assets/tangoappLogo.svg'
 import userIcon from '../assets/user.svg'
 
 const Header = () => {
@@ -23,11 +23,11 @@ const Header = () => {
       }}
     >
       <Box display='flex' alignItems='center' paddingRight='1em' sx={ mediaQuery ? { marginLeft: '45%' } : { marginLeft: '0', marginRight: 'auto' } }>
-      <div style={ { position: 'absolute', width: '5em', height: '45px', marginLeft: '1.5em', backgroundColor: '#ffffff', borderRadius: '50%', zIndex: -1 } } />
+      <div style={ { position: 'absolute', width: '5em', height: '45px', marginLeft: '1.5em', borderRadius: '50%', zIndex: -1 } } />
         <img
           alt='tangoAppLogo'
           src={image}
-          style={ { maxWidth: '130px', height: 'auto', color: 'darkgrey' } }
+          style={ { maxWidth: '70px', height: 'auto', color: 'darkgrey' } }
         />
       </Box>
       <Box display='flex' alignItems='center' marginRight='12.5%'>
