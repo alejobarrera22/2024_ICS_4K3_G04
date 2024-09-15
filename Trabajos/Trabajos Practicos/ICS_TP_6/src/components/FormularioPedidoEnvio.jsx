@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { Paper, Container, Grid, Typography, TextField, FormControl, InputLabel, Select, MenuItem, Button, Divider, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import dayjs from 'dayjs';
+
 import SimpleBackdrop from './SimpleBackdrop'
-// import VisuallyHiddenInput from './VisuallyHiddenInput'
+import VisuallyHiddenInput from './VisuallyHiddenInput'
 import { useNavigate } from 'react-router-dom'
-// import AlertaError from './AlertaError'
+import AlertaError from './AlertaError'
 import { lightBlue } from '@mui/material/colors'
 import FormHelperText from '@mui/material/FormHelperText'
 // import VolverAlInicio from './VolverAlInicio' // Importa el nuevo componente
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 // import enviarMailPedidoDeEnvio from '../helpers/sendMail'
+import sendEmail from './enviarEmail'
 import transportistas from '../database/transportistas.json'
 import greenOkImage from '../assets/green-oksvg.svg'
 import provincias from '../database/provincias.json'
@@ -57,6 +61,7 @@ const initialErrorsState = {
 }
 
 const lightBlueColor = lightBlue[500300]
+// sendCustomEmail({to_email: ''})
 const FormularioPedidoEnvio = () => {
   const navigate = useNavigate()
   // Estados para almacenar los datos del formulario
@@ -79,13 +84,6 @@ const FormularioPedidoEnvio = () => {
   // Manejar cambios en los campos del formulario
   const handleInputChange = (event) => {
     const { name, value } = event.target
-    // const errors = { ...formErrors }
-    // if (name === 'tipoDeCarga' && value === '') {
-    //   errors.tipoDeCarga = '*'
-    // } else {
-    //   errors.tipoDeCarga = ''
-    // }
-    // setFormErrors(errors)
     if (name.includes('.')) {
       const [firstProp, secondProp] = name.split('.')
       setFormData({
@@ -102,7 +100,7 @@ const FormularioPedidoEnvio = () => {
       })
     }
   }
-  // console.log(formData)
+  //  console.log(formData)
 
   // Manejar el accordion
   const handleOpenRetiro = () => {
@@ -147,11 +145,15 @@ const FormularioPedidoEnvio = () => {
     if (formData.tipoDeCarga === '') {
       errors.tipoDeCarga = 'Debe seleccionar una opción en "Tipo de Carga"'
     }
+    
     if (formData?.domicilioRetiro?.calle === '') {
       errors.calleRetiro = 'El campo Calle es obligatorio.'
     }
-    if (formData.domicilioRetiro.numero === '') {
-      errors.numeroRetiro = 'El campo Numero es obligatorio.'
+    if (formData.domicilioRetiro?.calle.length > 150){
+      errors.calleRetiro = 'El campo Calle no puede superar los 150 caracteres.'
+    }
+    if (formData.domicilioRetiro.numero.length > 6) {
+      errors.numeroRetiro = 'El campo Numero no puede superar los 6 caracteres.'
     }
     if (formData.domicilioRetiro.localidad === '') {
       errors.localidadRetiro = 'El campo Localidad es obligatorio.'
@@ -162,8 +164,11 @@ const FormularioPedidoEnvio = () => {
     if (formData?.domicilioEntrega?.calle === '') {
       errors.calleEntrega = 'El campo Calle es obligatorio.'
     }
-    if (formData.domicilioEntrega.numero === '') {
-      errors.numeroEntrega = 'El campo Numero es obligatorio.'
+    if (formData.domicilioEntrega.calle.length > 150) {
+      errors.calleEntrega = 'El campo Calle no puede superar los 150 caracteres.'
+    }
+    if (formData.domicilioEntrega.numero.length > 6) {
+      errors.numeroEntrega = 'El campo Numero no puede superar los 6 caracteres.'
     }
     if (formData.domicilioEntrega.localidad === '') {
       errors.localidadEntrega = 'El campo Localidad es obligatorio.'
@@ -201,47 +206,53 @@ const FormularioPedidoEnvio = () => {
         foto: selectedFile || null
       }
       console.log(formattedFormData)
-
+      console.log(formattedFormData.domicilioRetiro)
       const transportistaEncontrado = transportistas.find((transportista) =>
         (formattedFormData.domicilioRetiro.localidad.toLowerCase() === transportista.localidad.toLowerCase() && formattedFormData.domicilioRetiro.provincia.toLowerCase() === transportista.provincia.toLowerCase())
       )
       const transportistaEncontrado2 = transportistas.find((transportista) =>
         formattedFormData.domicilioEntrega.localidad.toLowerCase() === transportista.localidad.toLowerCase() && formattedFormData.domicilioEntrega.provincia.toLowerCase() === transportista.provincia.toLowerCase())
+      console.log('formdata')
+      console.log(formData)
+      if (transportistaEncontrado) {
+        const detailsEncontrado = {
+          to_email: transportistaEncontrado.email, 
+          to_name: transportistaEncontrado.nombre, 
+          tipoDeCarga: formData.tipoDeCarga,
+          domicilioEntrega_calle: formData.domicilioEntrega.calle,
+          domicilioEntrega_numero: formData.domicilioEntrega.numero,
+          domicilioEntrega_localidad: formData.domicilioEntrega.localidad,
+          domicilioEntrega_provincia: formData.domicilioEntrega.provincia,
+          fechaEntrega: formData.fechaEntrega,
+          domicilioRetiro_calle: formData.domicilioRetiro.calle,
+          domicilioRetiro_numero: formData.domicilioRetiro.numero,
+          domicilioRetiro_localidad: formData.domicilioRetiro.localidad,
+          domicilioRetiro_provincia: formData.domicilioRetiro.provincia,
+          fechaRetiro: formData.fechaRetiro,
+        };
+        sendEmail(detailsEncontrado);
+        console.log('Mail enviado correctamente a transportistaEncontrado...');
+      }
+      if (transportistaEncontrado2) {
+        const detailsEncontrado2 = {
+          to_email: transportistaEncontrado2.email, 
+          to_name: transportistaEncontrado2.nombre, 
+          tipoDeCarga: formData.tipoDeCarga,
+          domicilioEntrega_calle: formData.domicilioEntrega.calle,
+          domicilioEntrega_numero: formData.domicilioEntrega.numero,
+          domicilioEntrega_localidad: formData.domicilioEntrega.localidad,
+          domicilioEntrega_provincia: formData.domicilioEntrega.provincia,
+          fechaEntrega: formData.fechaEntrega,
+          domicilioRetiro_calle: formData.domicilioRetiro.calle,
+          domicilioRetiro_numero: formData.domicilioRetiro.numero,
+          domicilioRetiro_localidad: formData.domicilioRetiro.localidad,
+          domicilioRetiro_provincia: formData.domicilioRetiro.provincia,
+          fechaRetiro: formData.fechaRetiro,
+        };
+        sendEmail(detailsEncontrado2);
+        console.log('Mail enviado correctamente a transportistaEncontrado...');
+      }
 
-      // if (transportistaEncontrado) {
-      //   enviarMailPedidoDeEnvio(`<h1><strong>Se ha detectado un pedido de Envío cercano en tu zona</strong></h1>
-      //   <br>
-      //   <h3>Tipo de carga: <span><h4>${formData.tipoDeCarga}</h4></span></h3>
-      //   <h2>Datos de entrega:</h2><br>
-      //   <h3>Domicilio: <span><h4>${formData.domicilioEntrega.calle} N°${formData.domicilioEntrega.numero}</h4></span></h3>
-      //   <h3>Localidad: <span><h4>${formData.domicilioEntrega.localidad}</h4></span></h3>
-      //   <h3>Provincia: <span><h4>${formData.domicilioEntrega.provincia}</h4></span></h3>
-      //   <h3>Fecha de entrega: <span><h4>${formData.fechaEntrega}</h4></span></h3>
-      //   <h2>Datos de retiro:</h2><br>
-      //   <h3>Domicilio: <span><h4>${formData.domicilioRetiro.calle} N°${formData.domicilioRetiro.numero}</h4></span></h3>
-      //   <h3>Localidad: <span><h4>${formData.domicilioRetiro.localidad}</h4></span></h3>
-      //   <h3>Provincia: <span><h4>${formData.domicilioRetiro.provincia}</h4></span></h3>
-      //   <h3>Fecha de retiro: <span><h4>${formData.fechaRetiro}</h4></span></h3>
-      //   `, transportistaEncontrado.localidad.toLowerCase() === 'cordoba' ? null : 'template_catamarca')
-      //   console.log('Mail enviado correctamente...')
-      // }
-      // if (transportistaEncontrado2) {
-      //   enviarMailPedidoDeEnvio(`<h1><strong>Se ha detectado un pedido de Envío cercano en tu zona</strong></h1>
-      //   <br>
-      //   <h3>Tipo de carga: <span><h4>${formData.tipoDeCarga}</h4></span></h3>
-      //   <h2>Datos de entrega:</h2><br>
-      //   <h3>Domicilio: <span><h4>${formData.domicilioEntrega.calle} N°${formData.domicilioEntrega.numero}</h4></span></h3>
-      //   <h3>Localidad: <span><h4>${formData.domicilioEntrega.localidad}</h4></span></h3>
-      //   <h3>Provincia: <span><h4>${formData.domicilioEntrega.provincia}</h4></span></h3>
-      //   <h3>Fecha de entrega: <span><h4>${formData.fechaEntrega}</h4></span></h3>
-      //   <h2>Datos de retiro:</h2><br>
-      //   <h3>Domicilio: <span><h4>${formData.domicilioRetiro.calle} N°${formData.domicilioRetiro.numero}</h4></span></h3>
-      //   <h3>Localidad: <span><h4>${formData.domicilioRetiro.localidad}</h4></span></h3>
-      //   <h3>Provincia: <span><h4>${formData.domicilioRetiro.provincia}</h4></span></h3>
-      //   <h3>Fecha de retiro: <span><h4>${formData.fechaRetiro}</h4></span></h3>
-      //   `, transportistaEncontrado2.localidad.toLowerCase() === 'cordoba' ? null : 'template_catamarca')
-      //   console.log('Mail enviado correctamente...')
-      // }
 
       // Enviar datos a la API
       setOpenBackdrop(true)
@@ -412,6 +423,22 @@ const FormularioPedidoEnvio = () => {
                       error={!!formErrors.fechaRetiro}
                       helperText={formErrors.fechaRetiro}
                     />
+                    {/* <DatePicker
+                      label="Fecha de Retiro"
+                      value={dayjs(formData.fechaRetiro)} // Asegúrate de que "dayjs" esté importado y que formData.fechaRetiro sea una fecha válida.
+                      onChange={(newValue) => handleInputChange({
+                        target: { name: 'fechaRetiro', value: newValue ? newValue.format('YYYY-MM-DD') : '' }
+                      })}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          fullWidth
+                          variant="outlined"
+                          error={!!formErrors.fechaRetiro}
+                          helperText={formErrors.fechaRetiro}
+                        />
+                      )}
+                    /> */}
                   </Grid>
                 </AccordionDetails>
               </Accordion>
@@ -514,23 +541,24 @@ const FormularioPedidoEnvio = () => {
             </Grid>
             <Grid item xs={12} marginY='0.75em'>
               <TextField
-                label="Fecha de Entrega"
-                variant="outlined"
-                type="date"
-                fullWidth
-                name="fechaEntrega"
-                value={formData.fechaEntrega}
-                onChange={handleInputChange}
-                error={!!formErrors.fechaEntrega}
-                helperText={formErrors.fechaEntrega}
-                color={lightBlueColor}
-                />
+                  label="Fecha de Entrega"
+                  variant="outlined"
+                  type="date"
+                  fullWidth
+                  name="fechaEntrega"
+                  value={formData.fechaEntrega}
+                  onChange={handleInputChange}
+                  error={!!formErrors.fechaEntrega}
+                  helperText={formErrors.fechaEntrega}
+                  color={lightBlueColor}
+                  />
             </Grid>
+
             </AccordionDetails>
             </Accordion>
             </Grid>
             <Grid item xs={12} >
-              {/* <VisuallyHiddenInput setSelectedFile={setSelectedFile} /> */}
+              <VisuallyHiddenInput setSelectedFile={setSelectedFile} />
             </Grid>
             <Divider />
           </Grid>
@@ -606,7 +634,7 @@ const FormularioPedidoEnvio = () => {
           </Button>
         </DialogActions>
       </Dialog>
-      {/* {openError && <AlertaError />} */}
+      {openError && <AlertaError />}
       {/* <VolverAlInicio /> */}
     </Container>
   )
