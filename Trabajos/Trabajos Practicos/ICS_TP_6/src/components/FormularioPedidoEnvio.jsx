@@ -69,9 +69,10 @@ const FormularioPedidoEnvio = () => {
   const [selectedFile, setSelectedFile] = React.useState(null)
   const [openConfirm, setOpenConfirm] = React.useState(false)
   const [openSuccess, setOpenSuccess] = React.useState(false)
+  const [openMailSuccess, setOpenMailSuccess] = useState(false);  // Para el éxito del envío del correo
   const [accordionRetiro, setAccordionRetiro] = React.useState(false)
   const [accordionEntrega, setAccordionEntrega] = React.useState(false)
-
+  const [showMailPopup, setShowMailPopup] = useState(false);
   // Estado para almacenar los errores de validación
   const [formErrors, setFormErrors] = useState(initialErrorsState)
 
@@ -252,6 +253,7 @@ const FormularioPedidoEnvio = () => {
         sendEmail(detailsEncontrado2);
         console.log('Mail enviado correctamente a transportistaEncontrado...');
       }
+      // Indicar que el mail se envió correctamente y abrir el popup de éxito del correo.
 
 
       // Enviar datos a la API
@@ -260,7 +262,10 @@ const FormularioPedidoEnvio = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000))
       // Manejar la respuesta de la API
       setOpenBackdrop(false)
-      setOpenSuccess(true)
+      setOpenSuccess(true);
+      setTimeout(() => {
+        setOpenMailSuccess(true);
+      }, 2000); // Ajusta el tiempo según sea necesario
       // limpio los campos
       setFormData(initialFormState)
       setSelectedFile(null)
@@ -634,6 +639,22 @@ const FormularioPedidoEnvio = () => {
           </Button>
         </DialogActions>
       </Dialog>
+      
+      <Dialog open={openMailSuccess} onClose={() => setOpenMailSuccess(false)}>
+
+  <DialogTitle>Correo enviado</DialogTitle>
+  <DialogContent>
+    <DialogContentText>
+      El correo ha sido enviado correctamente al transportista.
+    </DialogContentText>
+    <img src={greenOkImage} style={{ maxWidth: '3em', height: 'auto', marginRight: '1.5em', color: 'green' }} />
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={() => setOpenMailSuccess(false)} color="primary">
+      Cerrar
+    </Button>
+  </DialogActions>
+</Dialog>
       {openError && <AlertaError />}
       {/* <VolverAlInicio /> */}
     </Container>

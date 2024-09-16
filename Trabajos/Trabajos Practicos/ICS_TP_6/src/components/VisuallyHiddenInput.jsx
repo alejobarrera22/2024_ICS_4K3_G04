@@ -30,6 +30,7 @@ InputFileUpload.propTypes = {
 export default function InputFileUpload ({ setSelectedFile2 }) {
   const [showAlert, setShowAlert] = React.useState('')
   const [selectedFiles, setSelectedFiles] = React.useState([])
+  const [openMailSuccess, setOpenMailSuccess] = React.useState(false);
 
   const handleImageChange = (event) => {
     const files = event.target.files
