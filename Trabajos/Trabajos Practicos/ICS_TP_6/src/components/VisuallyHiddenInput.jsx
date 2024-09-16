@@ -28,27 +28,48 @@ InputFileUpload.propTypes = {
 }
 
 export default function InputFileUpload ({ setSelectedFile2 }) {
-  const [showAlert, setShowAlert] = React.useState(false)
+  const [showAlert, setShowAlert] = React.useState('')
   const [selectedFiles, setSelectedFiles] = React.useState([])
 
   const handleImageChange = (event) => {
     const files = event.target.files
     const acceptedTypes = ['image/jpeg', 'image/png']
-    const newFiles = Array.from(files).filter((file) =>
-      acceptedTypes.includes(file.type)
-    )
-    if (newFiles.length !== files.length) {
-      setShowAlert(true)
-    } else {
+    const maxFiles = 4
+    const maxTotalSizeMB = 10 * 1024 * 1024 // 10 MB en bytes
+
+    // Calcula el tamaño total de los archivos seleccionados
+    const totalSize = [...selectedFiles, ...files].reduce((acc, file) => acc + file.size, 0)
+
+    // Filtra los archivos permitidos
+    const newFiles = Array.from(files).filter((file) => {
+      const isValidType = acceptedTypes.includes(file.type)
+      if (!isValidType) {
+        setShowAlert('Solo se permiten imágenes en formato JPG o PNG.')
+      }
+      return isValidType
+    })
+
+    if (newFiles.length + selectedFiles.length > maxFiles) {
+      setShowAlert('Solo se pueden subir hasta 4 imágenes.')
+      return
+    }
+
+    if (totalSize > maxTotalSizeMB) {
+      setShowAlert('El tamaño total de las imágenes debe ser menor a 10 MB.')
+      return
+    }
+
+    if (newFiles.length > 0) {
       setSelectedFiles([...selectedFiles, ...newFiles])
       setSelectedFile2([...selectedFiles, ...newFiles])
-      setShowAlert(false)
+      setShowAlert('') // Reinicia la alerta si todo está bien
     }
   }
 
   const handleRemoveImage = (fileToRemove) => {
-    setSelectedFiles(selectedFiles.filter(file => file !== fileToRemove))
-    setSelectedFile2(selectedFiles.filter(file => file !== fileToRemove))
+    const updatedFiles = selectedFiles.filter(file => file !== fileToRemove)
+    setSelectedFiles(updatedFiles)
+    setSelectedFile2(updatedFiles)
   }
 
   return (
@@ -63,21 +84,21 @@ export default function InputFileUpload ({ setSelectedFile2 }) {
             backgroundColor: '#4D9FE7'
           }
         }}
-        style={
-          {
-            fontFamily: 'Rubik, sans-serif',
-            fontWeight: '500',
-            fontSize: '0.95em'
-          }
-        }
+        style={{
+          fontFamily: 'Rubik, sans-serif',
+          fontWeight: '500',
+          fontSize: '0.95em'
+        }}
         fullWidth
       >
         Cargar imagen
-        <VisuallyHiddenInput type="file" onChange={handleImageChange} />
+        <VisuallyHiddenInput type="file" onChange={handleImageChange} multiple />
       </Button>
+      
       {showAlert && (
-        <Alert severity="error" onClose={() => setShowAlert(false)}>Solo se pueden subir imágenes en formato JPG o PNG.</Alert>
+        <Alert severity="error" onClose={() => setShowAlert('')}>{showAlert}</Alert>
       )}
+      
       {selectedFiles.length > 0 && selectedFiles.map((file, index) => (
         <div key={index}>
           <CloudDoneIcon color="success" />
