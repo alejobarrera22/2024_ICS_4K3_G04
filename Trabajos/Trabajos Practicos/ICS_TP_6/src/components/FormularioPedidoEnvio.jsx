@@ -116,7 +116,7 @@ const FormularioPedidoEnvio = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const errors = { }
+    const errors = {}
 
     // Validación de fechas
     const fechaRetiro = formData.fechaRetiro
@@ -146,11 +146,11 @@ const FormularioPedidoEnvio = () => {
     if (formData.tipoDeCarga === '') {
       errors.tipoDeCarga = 'Debe seleccionar una opción en "Tipo de Carga"'
     }
-    
+
     if (formData?.domicilioRetiro?.calle === '') {
       errors.calleRetiro = 'El campo Calle es obligatorio.'
     }
-    if (formData.domicilioRetiro?.calle.length > 150){
+    if (formData.domicilioRetiro?.calle.length > 150) {
       errors.calleRetiro = 'El campo Calle no puede superar los 150 caracteres.'
     }
     if (formData.domicilioRetiro.numero.length > 6) {
@@ -217,8 +217,8 @@ const FormularioPedidoEnvio = () => {
       console.log(formData)
       if (transportistaEncontrado) {
         const detailsEncontrado = {
-          to_email: transportistaEncontrado.email, 
-          to_name: transportistaEncontrado.nombre, 
+          to_email: transportistaEncontrado.email,
+          to_name: transportistaEncontrado.nombre,
           tipoDeCarga: formData.tipoDeCarga,
           domicilioEntrega_calle: formData.domicilioEntrega.calle,
           domicilioEntrega_numero: formData.domicilioEntrega.numero,
@@ -236,8 +236,8 @@ const FormularioPedidoEnvio = () => {
       }
       if (transportistaEncontrado2) {
         const detailsEncontrado2 = {
-          to_email: transportistaEncontrado2.email, 
-          to_name: transportistaEncontrado2.nombre, 
+          to_email: transportistaEncontrado2.email,
+          to_name: transportistaEncontrado2.nombre,
           tipoDeCarga: formData.tipoDeCarga,
           domicilioEntrega_calle: formData.domicilioEntrega.calle,
           domicilioEntrega_numero: formData.domicilioEntrega.numero,
@@ -294,7 +294,7 @@ const FormularioPedidoEnvio = () => {
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="h3" gutterBottom fontFamily={'Rubik, sans-serif'} fontSize='1.75em'>
+              <Typography variant="h3" gutterBottom fontFamily={'sans-serif'} fontSize='1.75em'>
                 Publicar Pedido de Envio
               </Typography>
             </Grid>
@@ -303,27 +303,27 @@ const FormularioPedidoEnvio = () => {
             <Grid item xs={12} textAlign={'left'}>
               <FormControl variant="outlined" fullWidth>
                 <InputLabel>Tipo de Carga *</InputLabel>
-             <Select
-                style={ { fontFamily: 'Rubik, sans-serif' } }
-                label="Tipo de Carga"
-                variant='outlined'
-                name='tipoDeCarga'
-                fullWidth
-                value={formData.tipoDeCarga}
-                onChange={e => handleInputChange(e)}
-                color={lightBlueColor}
-                error={!!formErrors.tipoDeCarga}
-              >
-                <MenuItem style={ { fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' } } value={'documentacion'}>Documentación</MenuItem>
-                <MenuItem style={ { fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' } } value={'paquete'}>Paquete</MenuItem>
-                <MenuItem style={ { fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' } } value={'granos'}>Granos</MenuItem>
-                <MenuItem style={ { fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' } } value={'hacienda'}>Hacienda</MenuItem>
-              </Select>
-              <FormHelperText error={!!formErrors.tipoDeCarga}>{formErrors.tipoDeCarga}</FormHelperText>
+                <Select
+                  style={{ fontFamily: 'sans-serif' }}
+                  label="Tipo de Carga"
+                  variant='outlined'
+                  name='tipoDeCarga'
+                  fullWidth
+                  value={formData.tipoDeCarga}
+                  onChange={e => handleInputChange(e)}
+                  color={lightBlueColor}
+                  error={!!formErrors.tipoDeCarga}
+                >
+                  <MenuItem style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={'documentacion'}>Documentación</MenuItem>
+                  <MenuItem style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={'paquete'}>Paquete</MenuItem>
+                  <MenuItem style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={'granos'}>Granos</MenuItem>
+                  <MenuItem style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={'hacienda'}>Hacienda</MenuItem>
+                </Select>
+                <FormHelperText error={!!formErrors.tipoDeCarga}>{formErrors.tipoDeCarga}</FormHelperText>
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="h6" gutterBottom fontFamily={'Rubik, sans-serif'}>
+              <Typography variant="h6" gutterBottom fontFamily={'sans-serif'}>
                 Domicilio de Retiro
               </Typography>
             </Grid>
@@ -344,7 +344,7 @@ const FormularioPedidoEnvio = () => {
                       color={lightBlueColor}
                       error={!!formErrors.calleRetiro}
                       helperText={formErrors.calleRetiro}
-                      />
+                    />
                   </Grid >
                   <Grid item xs={12}>
                     <TextField
@@ -364,44 +364,44 @@ const FormularioPedidoEnvio = () => {
                     <FormControl variant="outlined" fullWidth>
                       <InputLabel>Provincia</InputLabel>
                       <Select
-                          style={ { fontFamily: 'Rubik, sans-serif' } }
-                          label="Provincia"
-                          variant='outlined'
-                          name='domicilioRetiro.provincia'
-                          fullWidth
-                          value={formData.domicilioRetiro.provincia}
-                          onChange={e => handleInputChange(e)}
-                          color={lightBlueColor}
-                          error={!!formErrors.provinciaRetiro}
-                        >
-                          {provincias.map((prov) => (
-                          <MenuItem key={prov.id} style={ { fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' } } value={`${prov.nombre}`}>{prov.nombre}</MenuItem>))}
+                        style={{ fontFamily: 'sans-serif' }}
+                        label="Provincia"
+                        variant='outlined'
+                        name='domicilioRetiro.provincia'
+                        fullWidth
+                        value={formData.domicilioRetiro.provincia}
+                        onChange={e => handleInputChange(e)}
+                        color={lightBlueColor}
+                        error={!!formErrors.provinciaRetiro}
+                      >
+                        {provincias.map((prov) => (
+                          <MenuItem key={prov.id} style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={`${prov.nombre}`}>{prov.nombre}</MenuItem>))}
                       </Select>
-                    <FormHelperText error={!!formErrors.provinciaRetiro}>{formErrors.provinciaRetiro}</FormHelperText>
+                      <FormHelperText error={!!formErrors.provinciaRetiro}>{formErrors.provinciaRetiro}</FormHelperText>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} textAlign={'left'}>
                     <FormControl variant="outlined" fullWidth>
                       <InputLabel>Localidad</InputLabel>
                       <Select
-                          style={ { fontFamily: 'Rubik, sans-serif' } }
-                          label="Localidad"
-                          variant='outlined'
-                          name='domicilioRetiro.localidad'
-                          fullWidth
-                          value={formData.domicilioRetiro.localidad}
-                          onChange={e => handleInputChange(e)}
-                          color={lightBlueColor}
-                          error={!!formErrors.localidadRetiro}
-                          helperText={formErrors.localidadRetiro}
-                          disabled={formData.domicilioRetiro.provincia === ''}
-                        >
-                          {provincias.find(prov => prov.nombre === formData.domicilioRetiro.provincia)?.localidades.map((localidad) => (
-                        <MenuItem key={localidad.id} style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' }} value={`${localidad.nombre}`}>
-                          {localidad.nombre}
-                        </MenuItem>))}
+                        style={{ fontFamily: 'sans-serif' }}
+                        label="Localidad"
+                        variant='outlined'
+                        name='domicilioRetiro.localidad'
+                        fullWidth
+                        value={formData.domicilioRetiro.localidad}
+                        onChange={e => handleInputChange(e)}
+                        color={lightBlueColor}
+                        error={!!formErrors.localidadRetiro}
+                        helperText={formErrors.localidadRetiro}
+                        disabled={formData.domicilioRetiro.provincia === ''}
+                      >
+                        {provincias.find(prov => prov.nombre === formData.domicilioRetiro.provincia)?.localidades.map((localidad) => (
+                          <MenuItem key={localidad.id} style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={`${localidad.nombre}`}>
+                            {localidad.nombre}
+                          </MenuItem>))}
                       </Select>
-                    <FormHelperText error={!!formErrors.localidadRetiro}>{formErrors.localidadRetiro}</FormHelperText>
+                      <FormHelperText error={!!formErrors.localidadRetiro}>{formErrors.localidadRetiro}</FormHelperText>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} marginY='0.85em'>
@@ -449,59 +449,59 @@ const FormularioPedidoEnvio = () => {
               </Accordion>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="h6" gutterBottom fontFamily={'Rubik, sans-serif'}>
+              <Typography variant="h6" gutterBottom fontFamily={'sans-serif'}>
                 Domicilio de Entrega
               </Typography>
             </Grid>
             <Grid item xs={12}>
-            <Accordion defaultExpanded>
+              <Accordion defaultExpanded>
                 <AccordionSummary id="panel-header" aria-controls="panel-content" onClick={handleOpenEntrega}>
                   {accordionEntrega ? <KeyboardArrowUpIcon></KeyboardArrowUpIcon> : <KeyboardArrowDownIcon></KeyboardArrowDownIcon>}
                 </AccordionSummary>
                 <AccordionDetails>
-            <Grid item xs={12}>
-              <TextField
-                label="Calle"
-                variant="standard"
-                fullWidth
-                name="domicilioEntrega.calle"
-                value={formData.domicilioEntrega.calle}
-                onChange={handleInputChange}
-                error={!!formErrors.calleEntrega}
-                helperText={formErrors.calleEntrega}
-                color={lightBlueColor}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Numero"
-                variant="standard"
-                fullWidth
-                name="domicilioEntrega.numero"
-                value={formData.domicilioEntrega.numero}
-                onChange={handleInputChange}
-                error={!!formErrors.numeroEntrega}
-                helperText={formErrors.numeroEntrega}
-                color={lightBlueColor}
-                type='number'
-              />
-            </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      label="Calle"
+                      variant="standard"
+                      fullWidth
+                      name="domicilioEntrega.calle"
+                      value={formData.domicilioEntrega.calle}
+                      onChange={handleInputChange}
+                      error={!!formErrors.calleEntrega}
+                      helperText={formErrors.calleEntrega}
+                      color={lightBlueColor}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      label="Numero"
+                      variant="standard"
+                      fullWidth
+                      name="domicilioEntrega.numero"
+                      value={formData.domicilioEntrega.numero}
+                      onChange={handleInputChange}
+                      error={!!formErrors.numeroEntrega}
+                      helperText={formErrors.numeroEntrega}
+                      color={lightBlueColor}
+                      type='number'
+                    />
+                  </Grid>
                   <Grid item xs={12} textAlign={'left'} marginY={'1em'}>
                     <FormControl variant="outlined" fullWidth>
                       <InputLabel>Provincia</InputLabel>
                       <Select
-                          style={ { fontFamily: 'Rubik, sans-serif' } }
-                          label="Provincia"
-                          variant='outlined'
-                          name='domicilioEntrega.provincia'
-                          fullWidth
-                          value={formData.domicilioEntrega.provincia}
-                          onChange={e => handleInputChange(e)}
-                          color={lightBlueColor}
-                          error={!!formErrors.provinciaEntrega}
-                        >
-                          {provincias.map((prov) => (
-                          <MenuItem key={prov.id} style={ { fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' } } value={`${prov.nombre}`}>{prov.nombre}</MenuItem>))}
+                        style={{ fontFamily: 'sans-serif' }}
+                        label="Provincia"
+                        variant='outlined'
+                        name='domicilioEntrega.provincia'
+                        fullWidth
+                        value={formData.domicilioEntrega.provincia}
+                        onChange={e => handleInputChange(e)}
+                        color={lightBlueColor}
+                        error={!!formErrors.provinciaEntrega}
+                      >
+                        {provincias.map((prov) => (
+                          <MenuItem key={prov.id} style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={`${prov.nombre}`}>{prov.nombre}</MenuItem>))}
                       </Select>
                       <FormHelperText error={!!formErrors.provinciaEntrega}>{formErrors.provinciaEntrega}</FormHelperText>
                     </FormControl>
@@ -510,57 +510,57 @@ const FormularioPedidoEnvio = () => {
                     <FormControl variant="outlined" fullWidth>
                       <InputLabel>Localidad</InputLabel>
                       <Select
-                          style={ { fontFamily: 'Rubik, sans-serif' } }
-                          label="Localidad"
-                          variant='outlined'
-                          name='domicilioEntrega.localidad'
-                          fullWidth
-                          value={formData.domicilioEntrega.localidad}
-                          onChange={e => handleInputChange(e)}
-                          color={lightBlueColor}
-                          error={!!formErrors.localidadEntrega}
-                          helperText={formErrors.localidadEntrega}
-                          disabled={formData.domicilioEntrega.provincia === ''}
-                        >
-                          {provincias.find(prov => prov.nombre === formData.domicilioEntrega.provincia)?.localidades.map((localidad) => (
-                        <MenuItem key={localidad.id} style={{ fontFamily: 'Rubik, sans-serif', fontWeight: 'lighter' }} value={`${localidad.nombre}`}>
-                          {localidad.nombre}
-                        </MenuItem>))}
+                        style={{ fontFamily: 'sans-serif' }}
+                        label="Localidad"
+                        variant='outlined'
+                        name='domicilioEntrega.localidad'
+                        fullWidth
+                        value={formData.domicilioEntrega.localidad}
+                        onChange={e => handleInputChange(e)}
+                        color={lightBlueColor}
+                        error={!!formErrors.localidadEntrega}
+                        helperText={formErrors.localidadEntrega}
+                        disabled={formData.domicilioEntrega.provincia === ''}
+                      >
+                        {provincias.find(prov => prov.nombre === formData.domicilioEntrega.provincia)?.localidades.map((localidad) => (
+                          <MenuItem key={localidad.id} style={{ fontFamily: 'sans-serif', fontWeight: 'lighter' }} value={`${localidad.nombre}`}>
+                            {localidad.nombre}
+                          </MenuItem>))}
                       </Select>
-                    <FormHelperText error={!!formErrors.localidadEntrega}>{formErrors.localidadEntrega}</FormHelperText>
+                      <FormHelperText error={!!formErrors.localidadEntrega}>{formErrors.localidadEntrega}</FormHelperText>
                     </FormControl>
                   </Grid>
-            <Grid item xs={12} marginY='0.85em'>
-              <TextField
-                label="Referencia (opcional)"
-                variant="outlined"
-                multiline
-                fullWidth
-                name="domicilioEntrega.referencia"
-                value={formData.domicilioEntrega.referencia}
-                error={!!formErrors.referenciaEntrega}
-                helperText={formErrors.referenciaEntrega}
-                onChange={handleInputChange}
-                color={lightBlueColor}
-                />
-            </Grid>
-            <Grid item xs={12} marginY='0.75em'>
-              <TextField
-                  label="Fecha de Entrega"
-                  variant="outlined"
-                  type="date"
-                  fullWidth
-                  name="fechaEntrega"
-                  value={formData.fechaEntrega}
-                  onChange={handleInputChange}
-                  error={!!formErrors.fechaEntrega}
-                  helperText={formErrors.fechaEntrega}
-                  color={lightBlueColor}
-                  />
-            </Grid>
+                  <Grid item xs={12} marginY='0.85em'>
+                    <TextField
+                      label="Referencia (opcional)"
+                      variant="outlined"
+                      multiline
+                      fullWidth
+                      name="domicilioEntrega.referencia"
+                      value={formData.domicilioEntrega.referencia}
+                      error={!!formErrors.referenciaEntrega}
+                      helperText={formErrors.referenciaEntrega}
+                      onChange={handleInputChange}
+                      color={lightBlueColor}
+                    />
+                  </Grid>
+                  <Grid item xs={12} marginY='0.75em'>
+                    <TextField
+                      label="Fecha de Entrega"
+                      variant="outlined"
+                      type="date"
+                      fullWidth
+                      name="fechaEntrega"
+                      value={formData.fechaEntrega}
+                      onChange={handleInputChange}
+                      error={!!formErrors.fechaEntrega}
+                      helperText={formErrors.fechaEntrega}
+                      color={lightBlueColor}
+                    />
+                  </Grid>
 
-            </AccordionDetails>
-            </Accordion>
+                </AccordionDetails>
+              </Accordion>
             </Grid>
             <Grid item xs={12} >
               <VisuallyHiddenInput setSelectedFile={setSelectedFile} />
@@ -573,28 +573,34 @@ const FormularioPedidoEnvio = () => {
             sx={{
               marginTop: '16px',
               backgroundColor: '#6fbe56',
+              color: '#fff',
+              borderRadius: '8px', // Bordes redondeados
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Sombra sutil
               outline: 'none',
               border: 'none',
+              transition: 'background-color 0.3s, transform 0.2s', // Transición suave
               '&:hover': {
-                backgroundColor: '#6fbe56',
-                filter: 'brightness(1.1)'
+                backgroundColor: '#5caa4c', // Color ligeramente más oscuro
+                filter: 'brightness(1.1)',
+                transform: 'scale(1.05)', // Aumento de tamaño en el hover
               },
               '&:active': {
-                outline: 0,
-                border: 'none'
-              }
+                backgroundColor: '#4d8a3a', // Color aún más oscuro en el clic
+                transform: 'scale(1)', // Restaurar tamaño normal
+              },
             }}
-            style={
-              {
-                fontFamily: 'Rubik, sans-serif',
-                fontWeight: '500',
-                fontSize: '0.95em'
-              }
-            }
+            style={{
+              fontFamily: 'sans-serif',
+              fontWeight: '500',
+              fontSize: '0.95em',
+              textTransform: 'uppercase', // Texto en mayúsculas
+              padding: '12px 24px', // Aumento de padding
+            }}
             fullWidth
           >
             Registrar
           </Button>
+
           <SimpleBackdrop open={openBackdrop} />
         </form>
       </Paper>
@@ -639,22 +645,22 @@ const FormularioPedidoEnvio = () => {
           </Button>
         </DialogActions>
       </Dialog>
-      
+
       <Dialog open={openMailSuccess} onClose={() => setOpenMailSuccess(false)}>
 
-  <DialogTitle>Correo enviado</DialogTitle>
-  <DialogContent>
-    <DialogContentText>
-      El correo y la notifiacion push ha sido enviado correctamente al transportista.
-    </DialogContentText>
-    <img src={greenOkImage} style={{ maxWidth: '3em', height: 'auto', marginRight: '1.5em', color: 'green' }} />
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={() => setOpenMailSuccess(false)} color="primary">
-      Cerrar
-    </Button>
-  </DialogActions>
-</Dialog>
+        <DialogTitle>Correo enviado</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            El correo y la notifiacion push ha sido enviado correctamente al transportista.
+          </DialogContentText>
+          <img src={greenOkImage} style={{ maxWidth: '3em', height: 'auto', marginRight: '1.5em', color: 'green' }} />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenMailSuccess(false)} color="primary">
+            Cerrar
+          </Button>
+        </DialogActions>
+      </Dialog>
       {openError && <AlertaError />}
       {/* <VolverAlInicio /> */}
     </Container>

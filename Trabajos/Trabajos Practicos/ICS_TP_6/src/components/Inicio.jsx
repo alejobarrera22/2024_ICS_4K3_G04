@@ -10,8 +10,8 @@ const Inicio = () => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1 style={{ fontFamily: 'Rubik, sans-serif', marginBottom: '50px', fontWeight: 'bold' }}>¡Bienvenido a Nuestro Servicio de Envíos!</h1>
-      <p style={{ fontFamily: 'Rubik, sans-serif', marginBottom: '50px', fontWeight: 'bold'}}>
+      <h1 style={{ fontFamily: 'sans-serif', marginBottom: '50px', fontWeight: 'bold', color: 'white' }}>¡Bienvenido a Nuestro Servicio de Envíos!</h1>
+      <p style={{ fontFamily: 'sans-serif', marginBottom: '50px', fontWeight: 'bold', color:'white'}}>
         Publica tus pedidos de envío de manera rápida y sencilla.
       </p>
       <Button
@@ -20,7 +20,7 @@ const Inicio = () => {
         onClick={handleButtonClick}
         style={{
           background: 'linear-gradient(336deg, rgba(106,188,249,1) 5%, rgba(117,191,249,1) 52%, rgba(135,230,255,1) 94%)',
-          fontFamily: 'Rubik, sans-serif',
+          fontFamily: 'sans-serif',
           fontWeight: 'bold',
           color: '#03045E',
           borderRadius: '50px', // Bordes redondeados

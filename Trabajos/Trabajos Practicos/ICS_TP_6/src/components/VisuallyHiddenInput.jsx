@@ -86,7 +86,7 @@ export default function InputFileUpload ({ setSelectedFile2 }) {
           }
         }}
         style={{
-          fontFamily: 'Rubik, sans-serif',
+          fontFamily: 'sans-serif',
           fontWeight: '500',
           fontSize: '0.95em'
         }}
