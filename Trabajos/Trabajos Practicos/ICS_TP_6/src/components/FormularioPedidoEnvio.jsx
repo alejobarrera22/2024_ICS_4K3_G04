@@ -645,7 +645,7 @@ const FormularioPedidoEnvio = () => {
   <DialogTitle>Correo enviado</DialogTitle>
   <DialogContent>
     <DialogContentText>
-      El correo ha sido enviado correctamente al transportista.
+      El correo y la notifiacion push ha sido enviado correctamente al transportista.
     </DialogContentText>
     <img src={greenOkImage} style={{ maxWidth: '3em', height: 'auto', marginRight: '1.5em', color: 'green' }} />
   </DialogContent>
